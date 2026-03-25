@@ -5,7 +5,7 @@ export const OrdersPage = () => {
   return (
     <div>
 
-    <Header/>
+    <Header cart={[]}/>
     <div className="orders-page">
       <div className="page-title">Your Orders</div>
 

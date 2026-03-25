@@ -4,7 +4,7 @@ import './CheckoutPage.css';
 export const CheckoutPage = () => {
   return (
     <div>
-          <div className="checkout-header">
+      <div className="checkout-header">
       <div className="header-content">
         <div className="checkout-header-left-section">
           <a href="/">
