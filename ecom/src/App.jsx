@@ -1,9 +1,9 @@
 import axios from 'axios';
 import './App.css';
-import { CheckoutPage } from './pages/CheckoutPage';
-import { HomePage } from './pages/HomePage';
+import { CheckoutPage } from './pages/checkout/CheckoutPage';
+import { HomePage } from './pages/home/HomePage';
 import { Route,Routes } from 'react-router-dom';
-import { OrdersPage } from './pages/OrdersPage';
+import { OrdersPage } from './pages/orders/OrdersPage';
 import { useEffect,useState } from 'react';
 function App() {
   const [cart,setCart]=useState([])
