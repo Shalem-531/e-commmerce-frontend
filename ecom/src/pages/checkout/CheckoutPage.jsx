@@ -4,7 +4,7 @@ import './checkout-header.css';
 import './CheckoutPage.css';
 import { PaymentSummary } from './PaymentSummary';
 import { OrderSummary } from './OrderSummary';
-export const CheckoutPage = ({cart}) => {
+export const CheckoutPage = ({cart,loadCart}) => {
   const [deliveryOptions,setDeliveryOptions]=useState([]);
   const [paymentsummary,setPaymentsummary]=useState({});
   useEffect(()=>{
@@ -17,7 +17,7 @@ export const CheckoutPage = ({cart}) => {
     fetchCheckoutpage();
 
 
-  },[])
+  },[cart])
   return (
     <div>
       <div className="checkout-header">
@@ -44,7 +44,7 @@ export const CheckoutPage = ({cart}) => {
       <div className="page-title">Review your order</div>
 
       <div className="checkout-grid">
-      <OrderSummary cart={cart} deliveryOptions={deliveryOptions}/>
+      <OrderSummary cart={cart}  deliveryOptions={deliveryOptions} loadCart={loadCart}/>
        <PaymentSummary paymentsummary={paymentsummary}/>
       </div>
     </div>
