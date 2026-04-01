@@ -29,7 +29,8 @@ export const DeliveryOption = ({cartItem,deliveryOptions,loadCart}) => {
                                 name={`delivery-option-${cartItem.productId}`} />
                               <div>
                                 <div className="delivery-option-date">
-                                  {dayjs(deliveryOption.estimatedDeliveryTimeMs).format('dddd,MMMMM,D')}
+                                   
+                                    {dayjs(deliveryOption.estimatedDeliveryTimeMs).format('dddd,MMMMM,D')}
                                   
                                 </div>
                                 <div className="delivery-option-price">
