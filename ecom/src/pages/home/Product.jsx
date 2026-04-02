@@ -5,7 +5,7 @@ export const Product = ({product,loadCart}) => {
 const[quantity,setQuantity]=useState(1);
 
 const addTocart=async()=>{
-                await axios.post('api/cart-items',{
+                await axios.post('/api/cart-items',{
                   productId:product.id,
                   quantity:quantity
                 });
@@ -68,7 +68,9 @@ const selectedQuantity=((event)=>{
                 </div>
       
                 <button className="add-to-cart-button button-primary"
+                data-testid="add-to-cart-button"
                 onClick={addTocart}>
+                 
                   Add to Cart
                 </button>
               </div>
