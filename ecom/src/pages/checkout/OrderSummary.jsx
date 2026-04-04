@@ -13,7 +13,7 @@ export const OrderSummary = ({cart,deliveryOptions,loadCart}) => {
   }
   const handleSave= async(productId)=>{
       if(!quantity || quantity<1 ) return;
-      await axios.post('/api/cart-items',{
+      await axios.put(`/api/cart-items/${productId}`,{
         productId:productId,
         quantity
       })

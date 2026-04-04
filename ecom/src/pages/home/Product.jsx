@@ -22,7 +22,7 @@ const addTocart=async()=>{
 const selectedQuantity=((event)=>{
                      const quantitySelected=Number(event.target.value);
                      setQuantity(quantitySelected);
-                     console.log(quantitySelected)
+                    
                   })
 
 
