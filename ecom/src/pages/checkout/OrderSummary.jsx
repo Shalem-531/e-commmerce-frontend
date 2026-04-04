@@ -2,8 +2,27 @@ import { formatMoney } from "../../utils/money";
 import dayjs from "dayjs";
 import { DeliveryOption } from "./deliveryOption";
 import axios from "axios";
+import { useState } from "react";
 
 export const OrderSummary = ({cart,deliveryOptions,loadCart}) => {
+  const [isedit,setIsedit]=useState(null);
+  const [quantity,setquantity]=useState(1);
+  const handleupdate=(productid,qty)=>{
+    setIsedit(productid);
+    setquantity(qty);
+  }
+  const handleSave= async(productId)=>{
+      if(!quantity || quantity<1 ) return;
+      await axios.post('/api/cart-items',{
+        productId:productId,
+        quantity
+      })
+      await loadCart();
+     setIsedit(null);
+  }
+  const handleCancel=()=>{
+     setIsedit(null);
+  }
   return (
     <div>
         <div className="order-summary">
@@ -34,11 +53,15 @@ export const OrderSummary = ({cart,deliveryOptions,loadCart}) => {
                       <div className="product-price">
                        {formatMoney(cartItem.product.priceCents)}
                       </div>
-                      <div className="product-quantity">
+                      {isedit !== cartItem.productId ? (
+                                 <div className="product-quantity">
                         <span>
                           Quantity: <span className="quantity-label">{cartItem.quantity}</span>
                         </span>
-                        <span className="update-quantity-link link-primary">
+                        <span className="update-quantity-link link-primary"
+                        onClick={()=>{
+                          handleupdate(cartItem.productId,cartItem.quantity);
+                        }}>
                           Update
                         </span>
                         <span className="delete-quantity-link link-primary"
@@ -46,6 +69,35 @@ export const OrderSummary = ({cart,deliveryOptions,loadCart}) => {
                           Delete
                         </span>
                       </div>
+                      ):(
+                         <div style={{ marginTop: "5px" }}>
+                          <input
+                            type="number"
+                            value={quantity}
+                            min="1"
+                            onChange={(e) =>
+                              setquantity(Number(e.target.value))
+                            }
+                            style={{
+                              width: "60px",
+                              marginRight: "10px",
+                              padding: "3px"
+                            }}
+                          />
+
+                          <button
+                            onClick={() => handleSave(cartItem.productId)}
+                            style={{ marginRight: "5px" }}
+                          >
+                            Save
+                          </button>
+                          <button onClick={handleCancel}>
+                            Cancel
+                          </button>
+                        </div>
+                      )
+                      }
+            
                     </div>
                   <DeliveryOption cartItem={cartItem} deliveryOptions={deliveryOptions} loadCart={loadCart}/>
                   </div>
