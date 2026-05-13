@@ -9,9 +9,10 @@ export  const Header = ({cart}) => {
      <div>
      <div className="header">
       <div className="left-section">
-        <Link to="/" className="header-link">
-          <img className="logo"
-            src="images/logo-white.png" />
+        <Link to="/home" className="header-link">
+           <h1 style={{ color: "white", marginLeft: "10px", fontSize: "15px", }}>
+             HOME
+            </h1>
           <img className="mobile-logo"
             src="images/mobile-logo-white.png" />
         </Link>
