@@ -68,11 +68,11 @@ export const OrdersPage = ({cart}) => {
             </div>
 
             <div className="product-actions">
-              <a href="/tracking">
+            
                 <button className="track-package-button button-secondary">
                   Track package
                 </button>
-              </a>
+             
             </div>
             </Fragment >
                 )

@@ -23,15 +23,16 @@ export const CheckoutPage = ({cart,loadCart}) => {
       <div className="checkout-header">
       <div className="header-content">
         <div className="checkout-header-left-section">
-          <a href="/">
-            <img className="logo" src="images/logo.png" />
-            <img className="mobile-logo" src="images/mobile-logo.png" />
+          <a href="/home" className='home-link'>
+           <h1 style={{ color: "black",fontSize:"22px"}}>
+             HOME
+            </h1>
           </a>
         </div>
 
         <div className="checkout-header-middle-section">
           Checkout (<a className="return-to-home-link"
-            href="/">3 items</a>)
+            href="/home">3 items</a>)
         </div>
 
         <div className="checkout-header-right-section">
