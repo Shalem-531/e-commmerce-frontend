@@ -97,6 +97,12 @@
   align-items: center;
   justify-content: end;
 }
+.home-link{
+  text-decoration: none;
+}
+.home-link:hover{
+  text-decoration:underline;
+}
 
 .checkout-header .checkout-header-right-section img {
   height: 32px;
