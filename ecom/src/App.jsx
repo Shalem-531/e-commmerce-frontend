@@ -8,11 +8,12 @@ import { useEffect,useState } from 'react';
 import { Register } from './pages/register';
 import { Login } from './pages/login';
 import { ProtectedRoute } from './pages/protectedroute';
+import { authApi,ecomApi } from './api/axios';
 function App() {
   const [cart,setCart]=useState([]);
   const[user,setUser]=useState(null);
      const loadCart=async ()=>{
-    const response=await axios.get('/api/cart-items?expand=product');
+    const response=await ecomApi.get('/api/cart-items?expand=product');
         setCart(response.data);
        
     }
@@ -24,8 +25,11 @@ function App() {
   const token = localStorage.getItem("token");
 
   if (token) {
-    axios.defaults.headers.common["Authorization"] =
-      `Bearer ${token}`;
+     authApi.defaults.headers.common["Authorization"] =
+    `Bearer ${token}`;
+
+  ecomApi.defaults.headers.common["Authorization"] =
+    `Bearer ${token}`;
   }
 
 }, []);

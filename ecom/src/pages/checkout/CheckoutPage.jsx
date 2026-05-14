@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ecomApi } from '../../api/axios';
 import { useEffect,useState } from 'react';
 import './checkout-header.css';
 import './CheckoutPage.css';
@@ -9,9 +10,9 @@ export const CheckoutPage = ({cart,loadCart}) => {
   const [paymentsummary,setPaymentsummary]=useState({});
   useEffect(()=>{
     const fetchCheckoutpage=async()=>{
-    let response=await  axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
+    let response=await  ecomApi.get('/api/delivery-options?expand=estimatedDeliveryTime')
        setDeliveryOptions(response.data);
-      response=await  axios.get('/api/payment-summary')
+      response=await  ecomApi.get('/api/payment-summary')
       setPaymentsummary(response.data);
     } 
     fetchCheckoutpage();
