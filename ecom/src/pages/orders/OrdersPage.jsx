@@ -3,7 +3,7 @@ import { ecomApi } from '../../api/axios';
 import dayjs from 'dayjs';
 import { formatMoney } from '../../utils/money';
 import './OrdersPage.css';
-import { Header } from '../../components/header';
+import { Header } from '../../components/Header';
 import { useState,useEffect,Fragment } from 'react';
 export const OrdersPage = ({cart}) => {
   const[orders,setOrders]=useState([])

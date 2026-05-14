@@ -1,6 +1,6 @@
 import { formatMoney } from "../../utils/money";
 import dayjs from "dayjs";
-import { DeliveryOption } from "./deliveryOption";
+import { DeliveryOption } from "./DeliveryOption";
 import axios from "axios";
 import { useState } from "react";
 import { ecomApi } from "../../api/axios";

@@ -1,5 +1,5 @@
 
-import { Header } from '../../components/header'
+import { Header } from '../../components/Header'
 import './HomePage.css'
 import axios from 'axios'
 import { ecomApi } from '../../api/axios'
