@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
+import { authApi,ecomApi } from "../api/axios"
 
 export const Login = ({setUser}) => {
   const[error,setError]=useState("")
@@ -22,12 +23,16 @@ export const Login = ({setUser}) => {
    setLoading(true);
 
    try{
-     const res= await axios.post('/api/users/login',formdata)
+     const res= await authApi.post('/api/users/login',formdata)
 
      localStorage.setItem("token",res.data.token)
 
      // ✅ set token globally
-     axios.defaults.headers.common["Authorization"] = `Bearer ${res.data.token}`
+     authApi.defaults.headers.common["Authorization"] =
+  `Bearer ${res.data.token}`;
+
+    ecomApi.defaults.headers.common["Authorization"] =
+  `Bearer ${res.data.token}`;
 
      // ✅ clean user (no token inside)
      setUser({

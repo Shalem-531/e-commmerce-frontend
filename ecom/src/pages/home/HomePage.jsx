@@ -2,13 +2,14 @@
 import { Header } from '../../components/header'
 import './HomePage.css'
 import axios from 'axios'
+import { ecomApi } from '../../api/axios'
 import { useEffect,useState } from 'react'
 import { ProductsGrid } from './ProductsGrid';
 export const HomePage = ({cart,loadCart}) => {
   const[products,setProducts]=useState([])
    useEffect(()=>{
     const fetchHome=async()=>{
-    const response=await axios.get("/api/products")
+    const response=await ecomApi.get("/api/products")
        setProducts(response.data);
     }
   fetchHome();

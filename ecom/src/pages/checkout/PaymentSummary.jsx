@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { formatMoney } from "../../utils/money";
+import { ecomApi } from "../../api/axios";
 export const PaymentSummary = ({paymentsummary,loadCart}) => {
   const navigate=useNavigate();
   const createOrder=async()=>{
-    await axios.post('/api/orders');
+    await ecomApi.post('/api/orders');
    await loadCart();
    navigate('/orders');
   };

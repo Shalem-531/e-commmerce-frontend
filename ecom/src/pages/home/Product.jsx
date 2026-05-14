@@ -2,13 +2,14 @@ import { useState } from "react";
 import { formatMoney } from "../../utils/money";
 import axios from "axios";
 import { useEffect } from "react";
+import { ecomApi } from "../../api/axios";
 export const Product = ({product,loadCart}) => {
 const[quantity,setQuantity]=useState(1);
 const [addcart,setAddcart]=useState(false);
 
 
 const addTocart=async()=>{
-                await axios.post('/api/cart-items',{
+                await ecomApi.post('/api/cart-items',{
                   productId:product.id,
                   quantity:quantity
                 });

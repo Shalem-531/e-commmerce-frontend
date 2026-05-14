@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
+import { authApi,ecomApi } from "../api/axios"
 
 export const Register = ({setUser}) => {
   const[error,setError]=useState("")
@@ -23,11 +24,15 @@ export const Register = ({setUser}) => {
    setLoading(true);
 
    try{
-     const res= await axios.post('/api/users/register',formdata)
+     const res= await authApi.post('/api/users/register',formdata)
 
      localStorage.setItem("token",res.data.token)
 
-     axios.defaults.headers.common["Authorization"] = `Bearer ${res.data.token}`
+    authApi.defaults.headers.common["Authorization"] =
+  `Bearer ${res.data.token}`;
+
+  ecomApi.defaults.headers.common["Authorization"] =
+  `Bearer ${res.data.token}`;
 
      setUser({
       id: res.data.id,

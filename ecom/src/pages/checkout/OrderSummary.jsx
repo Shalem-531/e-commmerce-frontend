@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import { DeliveryOption } from "./deliveryOption";
 import axios from "axios";
 import { useState } from "react";
+import { ecomApi } from "../../api/axios";
 
 export const OrderSummary = ({cart,deliveryOptions,loadCart}) => {
   const [isedit,setIsedit]=useState(null);
@@ -13,7 +14,7 @@ export const OrderSummary = ({cart,deliveryOptions,loadCart}) => {
   }
   const handleSave= async(productId)=>{
       if(!quantity || quantity<1 ) return;
-      await axios.put(`/api/cart-items/${productId}`,{
+      await ecomApi.put(`/api/cart-items/${productId}`,{
         productId:productId,
         quantity
       })
@@ -32,7 +33,7 @@ export const OrderSummary = ({cart,deliveryOptions,loadCart}) => {
                        return deliveryOption.id===cartItem.deliveryOptionId;
                     });
                       const deleteCartItem=async()=>{
-                     await axios.delete(`/api/cart-items/${cartItem.productId}`);
+                     await ecomApi.delete(`/api/cart-items/${cartItem.productId}`);
                      await loadCart();
                     };
                   

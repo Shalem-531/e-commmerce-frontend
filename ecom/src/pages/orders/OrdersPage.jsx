@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ecomApi } from '../../api/axios';
 import dayjs from 'dayjs';
 import { formatMoney } from '../../utils/money';
 import './OrdersPage.css';
@@ -7,7 +8,7 @@ import { useState,useEffect,Fragment } from 'react';
 export const OrdersPage = ({cart}) => {
   const[orders,setOrders]=useState([])
   useEffect(()=>{
-    axios.get('/api/orders?expand=products').
+    ecomApi.get('/api/orders?expand=products').
     then((response)=>{
     setOrders(response.data);
     })
