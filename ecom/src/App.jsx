@@ -17,22 +17,20 @@ function App() {
         setCart(response.data);
        
     }
-  useEffect(()=>{
-    loadCart();
-  },[])
-  useEffect(() => {
-
+ useEffect(() => {
   const token = localStorage.getItem("token");
 
   if (token) {
-     authApi.defaults.headers.common["Authorization"] =
-    `Bearer ${token}`;
+    authApi.defaults.headers.common["Authorization"] =
+      `Bearer ${token}`;
 
-  ecomApi.defaults.headers.common["Authorization"] =
-    `Bearer ${token}`;
+    ecomApi.defaults.headers.common["Authorization"] =
+      `Bearer ${token}`;
+
+    loadCart();
   }
-
 }, []);
+
 
   return (
     <>
