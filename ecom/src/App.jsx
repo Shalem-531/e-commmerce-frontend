@@ -36,7 +36,7 @@ function App() {
     <>
    <Routes>
 
-  <Route path="/" element={<Register />} />
+  <Route path="/" element={<Register setUser={setUser}/>} />
 
   <Route path="/login" element={<Login setUser={setUser} />} />
 
