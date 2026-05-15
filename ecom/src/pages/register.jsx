@@ -28,7 +28,7 @@ export const Register = ({setUser}) => {
 
      localStorage.setItem("token",res.data.token)
 
-    authApi.defaults.headers.common["Authorization"] =
+  authApi.defaults.headers.common["Authorization"] =
   `Bearer ${res.data.token}`;
 
   ecomApi.defaults.headers.common["Authorization"] =
