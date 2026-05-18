@@ -2,8 +2,9 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import { authApi,ecomApi } from "../api/axios"
+import { Navbar } from "./navbar"
 
-export const Register = ({setUser}) => {
+export const Register = ({user,setUser}) => {
   const[error,setError]=useState("")
   const [loading,setLoading]=useState(false)
   const navigate=useNavigate();
@@ -51,7 +52,10 @@ export const Register = ({setUser}) => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100"> {/* only fix */}
+    <>
+    <Navbar user={user} setUser={setUser}/>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+       {/* only fix */}
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md border border-gray-200">
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">REGISTER</h2>
 
@@ -102,5 +106,6 @@ export const Register = ({setUser}) => {
         </form>
       </div>
     </div>
+    </>
   )
 }

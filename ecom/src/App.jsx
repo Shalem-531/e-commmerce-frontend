@@ -36,9 +36,9 @@ function App() {
     <>
    <Routes>
 
-  <Route path="/" element={<Register setUser={setUser}/>} />
+  <Route path="/" element={<Register user={user} setUser={setUser}/>} />
 
-  <Route path="/login" element={<Login setUser={setUser} />} />
+  <Route path="/login" element={<Login user={user} setUser={setUser} />} />
 
   {/* 🔒 Protected Home */}
   <Route
