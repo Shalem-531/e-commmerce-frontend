@@ -9,7 +9,7 @@ export const Navbar = ({ user, setUser }) => {
 
 
   return (
-    <div className="p-4 bg-gray-200 flex justify-between items-center">
+    <div className="p-4 bg-gray-200 flex justify-end items-center">
    
 
       <div>
@@ -18,14 +18,14 @@ export const Navbar = ({ user, setUser }) => {
         ) : path === "/" ? (
           <Link
             to="/login"
-            className="bg-gray-800 text-white px-3 py-1 rounded"
+            className="bg-gray-800 text-white px-4 py-2 rounded no-underline hover:bg-red-600"
           >
             Login
           </Link>
         ) : (
           <Link
             to="/"
-            className="bg-gray-800 text-white px-3 py-1 rounded"
+            className="bg-gray-800 text-white px-4 py-2 rounded no-underline hover:bg-red-600"
           >
             Register
           </Link>
