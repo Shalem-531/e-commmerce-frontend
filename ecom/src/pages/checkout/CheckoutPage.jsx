@@ -19,6 +19,9 @@ export const CheckoutPage = ({cart,loadCart}) => {
 
 
   },[cart])
+  const totalItems = cart.reduce((total, cartItem) => {
+  return total + cartItem.quantity;
+}, 0);
   return (
     <div>
       <div className="checkout-header">
@@ -33,7 +36,7 @@ export const CheckoutPage = ({cart,loadCart}) => {
 
         <div className="checkout-header-middle-section">
           Checkout (<a className="return-to-home-link"
-            href="/home">3 items</a>)
+            href="/home">{totalItems} items</a>)
         </div>
 
         <div className="checkout-header-right-section">
